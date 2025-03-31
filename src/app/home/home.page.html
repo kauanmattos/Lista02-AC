@@ -1,20 +1,72 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      LISTA 2 - Exercícios
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+    <ion-alert trigger="Carro" header="Valor total da viagem"
+      message="Total: {{valorFinal}}, App: {{valorApp}}, Motorista: {{valorMotorista}}" [buttons]="alertButtons">
+    </ion-alert>
+
+    <ion-radio-group value="end" [(ngModel)]="carro" id="lista-carros">
+      <h1>Exercício 1 - Lista 02</h1>
+      <ion-item>
+        <ion-label>Normal</ion-label>
+        <ion-radio slot="end" value="normal"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Superior</ion-label>
+        <ion-radio slot="end" value="superior"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Vip</ion-label>
+        <ion-radio slot="end" value="vip"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <br>
+
+    <ion-label>Quilômetros Rodados</ion-label>
+    <ion-input [(ngModel)]="valorRodados" type="number" placeholder="Digite os quilômetros rodados"></ion-input>
+
+    <ion-button expand="full" id="Carro" (click)="valorViagem()">Valor viagem</ion-button>
+
+    <h1>Exercício 2 - Lista 02</h1>
+
+    <ion-alert trigger="dispara-alert" header="Valor Final" message="R$ {{valorFinal}}" [buttons]="alertButtons">
+    </ion-alert>
+
+    <ion-radio-group [(ngModel)]="tipoGasolina">
+      <ion-item>
+        <ion-label>Etanol</ion-label>
+        <ion-radio slot="end" value="etanol"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Gasolina</ion-label>
+        <ion-radio slot="end" value="gasolina"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Diesel</ion-label>
+        <ion-radio slot="end" value="diesel"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+
+    <br>
+
+    <ion-label>Preço por Litro</ion-label>
+    <ion-input [(ngModel)]="precoLitro" type="number" placeholder="Digite o preço"></ion-input>
+
+    <br>
+
+    <ion-label>Quilometragem Rodada</ion-label>
+    <ion-input [(ngModel)]="KmRodados" type="number" placeholder="Digite o km rodados "></ion-input>
+
+    <ion-button expand="full" id="dispara-alert" (click)="calcularValor()">Calcular Preço</ion-button>
   </div>
 </ion-content>
+
